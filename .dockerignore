@@ -1,0 +1,21 @@
+# Исключаем системные файлы
+.git
+.gitignore
+.DS_Store
+.idea/
+.vscode/
+
+# Исключаем файлы логов и кеш
+storage/logs/*
+storage/framework/*
+bootstrap/cache/*
+
+# Исключаем файлы конфигурации среды
+.env
+.env.local
+.env.*.local
+
+# Исключаем файлы Docker, если они не нужны в образе
+Docker/php/php.ini
+Docker/nginx/nginx.conf
+docker-compose.override.yml

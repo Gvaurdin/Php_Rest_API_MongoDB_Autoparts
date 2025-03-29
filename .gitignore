@@ -1,0 +1,20 @@
+# Игнорируем папку vendor, если Composer пакеты ставятся через Docker
+/vendor/
+# Конфигурационные файлы, содержащие секретные ключи
+.env
+.env.local
+.env.*.local
+# Логи и кэш
+storage/logs/
+storage/framework/
+bootstrap/cache/
+# IDE и системные файлы
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+# Docker файлы и кэш
+Docker/php/php.ini
+Docker/nginx/nginx.conf
+docker-compose.override.yml

@@ -1,0 +1,38 @@
+services:
+  # PHP-FPM сервис
+  php:
+    build:
+      context: .
+      dockerfile: Docker/php/Dockerfile
+    container_name: autoparts-php
+    restart: always
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+      - ./logs:/var/log
+      - ./Docker/php/php.ini:/usr/local/etc/php/php.ini  # Исправленный путь для php.ini
+    env_file:
+      - .env
+    networks:
+      - autoparts-network
+
+  # Nginx сервис
+  nginx:
+    image: nginx:latest
+    container_name: autoparts-nginx
+    restart: always
+    ports:
+      - "80:80"   # Открываем HTTP-порт
+      - "443:443" # Открываем HTTPS-порт (в будущем настроим SSL)
+    volumes:
+      - ./Docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www
+      - ./logs:/var/log
+    networks:
+      - autoparts-network
+    depends_on:
+      - php
+
+networks:
+  autoparts-network:
+    external: true

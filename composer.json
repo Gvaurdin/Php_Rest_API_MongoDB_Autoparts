@@ -1,0 +1,20 @@
+{
+    "name": "autoparts/app",
+    "description": "REST API для магазина автозапчастей",
+    "type": "project",
+    "require": {
+        "mongodb/mongodb": "^1.21",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Autoparts\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gsa"
+        }
+    ]
+}

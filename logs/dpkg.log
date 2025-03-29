@@ -1,0 +1,27 @@
+2025-03-19 15:28:37 startup archives unpack
+2025-03-19 15:28:37 install libncursesw6:amd64 <none> 6.4-4
+2025-03-19 15:28:37 status triggers-pending libc-bin:amd64 2.36-9+deb12u10
+2025-03-19 15:28:37 status half-installed libncursesw6:amd64 6.4-4
+2025-03-19 15:28:37 status unpacked libncursesw6:amd64 6.4-4
+2025-03-19 15:28:37 install nano:amd64 <none> 7.2-1+deb12u1
+2025-03-19 15:28:37 status half-installed nano:amd64 7.2-1+deb12u1
+2025-03-19 15:28:38 status unpacked nano:amd64 7.2-1+deb12u1
+2025-03-19 15:28:38 install libgpm2:amd64 <none> 1.20.7-10+b1
+2025-03-19 15:28:38 status half-installed libgpm2:amd64 1.20.7-10+b1
+2025-03-19 15:28:38 status unpacked libgpm2:amd64 1.20.7-10+b1
+2025-03-19 15:28:38 startup packages configure
+2025-03-19 15:28:38 configure libgpm2:amd64 1.20.7-10+b1 <none>
+2025-03-19 15:28:38 status unpacked libgpm2:amd64 1.20.7-10+b1
+2025-03-19 15:28:38 status half-configured libgpm2:amd64 1.20.7-10+b1
+2025-03-19 15:28:38 status installed libgpm2:amd64 1.20.7-10+b1
+2025-03-19 15:28:38 configure libncursesw6:amd64 6.4-4 <none>
+2025-03-19 15:28:38 status unpacked libncursesw6:amd64 6.4-4
+2025-03-19 15:28:38 status half-configured libncursesw6:amd64 6.4-4
+2025-03-19 15:28:38 status installed libncursesw6:amd64 6.4-4
+2025-03-19 15:28:38 configure nano:amd64 7.2-1+deb12u1 <none>
+2025-03-19 15:28:38 status unpacked nano:amd64 7.2-1+deb12u1
+2025-03-19 15:28:38 status half-configured nano:amd64 7.2-1+deb12u1
+2025-03-19 15:28:38 status installed nano:amd64 7.2-1+deb12u1
+2025-03-19 15:28:38 trigproc libc-bin:amd64 2.36-9+deb12u10 <none>
+2025-03-19 15:28:38 status half-configured libc-bin:amd64 2.36-9+deb12u10
+2025-03-19 15:28:38 status installed libc-bin:amd64 2.36-9+deb12u10
