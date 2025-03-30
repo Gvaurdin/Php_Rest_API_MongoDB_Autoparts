@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Docker/php/Dockerfile
     container_name: autoparts-php
+    ports:
+      -"8080:80"
     restart: always
     working_dir: /var/www
     volumes:
