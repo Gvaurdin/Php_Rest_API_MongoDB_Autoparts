@@ -7,6 +7,22 @@ use MongoDB\Operation\Find;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+// Разрешить все домены (можно указать конкретный домен вместо *)
+header('Access-Control-Allow-Origin: *');
+
+// Разрешить методы
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+
+// Разрешить заголовки
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
+// Для поддержки preflight-запросов
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    // Отправить успешный ответ на preflight-запрос
+    http_response_code(200);
+    exit();
+}
+
 // Подключаем маршруты только если не в CLI
 if (php_sapi_name() !== 'cli') {
     require __DIR__ . '/../routes/web.php';
