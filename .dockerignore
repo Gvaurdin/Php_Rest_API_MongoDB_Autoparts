@@ -16,6 +16,5 @@ bootstrap/cache/*
 .env.*.local
 
 # Исключаем файлы Docker, если они не нужны в образе
-Docker/php/php.ini
 Docker/nginx/nginx.conf
 docker-compose.override.yml
