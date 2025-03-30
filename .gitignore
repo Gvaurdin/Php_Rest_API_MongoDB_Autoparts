@@ -15,6 +15,5 @@ bootstrap/cache/
 *.swo
 .DS_Store
 # Docker файлы и кэш
-Docker/php/php.ini
 Docker/nginx/nginx.conf
 docker-compose.override.yml
