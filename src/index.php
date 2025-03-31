@@ -16,6 +16,9 @@ header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 // Разрешить заголовки
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
+// Указываем, что ответ в формате JSON
+header('Content-Type: application/json; charset=utf-8');
+
 // Для поддержки preflight-запросов
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     // Отправить успешный ответ на preflight-запрос
