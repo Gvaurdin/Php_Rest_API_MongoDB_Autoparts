@@ -13,10 +13,10 @@ services:
     env_file:
       - .env
     networks:
-      - autoparts_network
+      autoparts_network:
+        ipv4_address: 192.168.32.11
 
 networks:
   autoparts_network:
     name: autoparts_network
-    ipv4_address: 192.168.32.11
     driver: bridge
