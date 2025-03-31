@@ -13,9 +13,3 @@ services:
       - ./Docker/php/php.ini:/usr/local/etc/php/php.ini  # Исправленный путь для php.ini
     env_file:
       - .env
-    networks:
-      - autoparts_network  # Подключаем контейнер к сети
-
-networks:
-  autoparts_network:
-    driver: bridge 
