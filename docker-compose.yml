@@ -1,5 +1,4 @@
 services:
-  # PHP-FPM сервис
   php:
     build:
       context: .
@@ -13,3 +12,10 @@ services:
       - ./Docker/php/php.ini:/usr/local/etc/php/php.ini  # Исправленный путь для php.ini
     env_file:
       - .env
+    networks:
+      - autoparts_network
+
+networks:
+  autoparts_network:
+    name: autoparts_network
+    driver: bridge
