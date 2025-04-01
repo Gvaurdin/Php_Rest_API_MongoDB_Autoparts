@@ -18,7 +18,7 @@ jobs:
     - name: Add SSH Known Hosts
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
+        echo "${{ secrets.KNOWN_HOSTS }}" >> ~/.ssh
 
     - name: Setup Docker Network
       env:
