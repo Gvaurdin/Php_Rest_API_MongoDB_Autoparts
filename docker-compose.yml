@@ -10,6 +10,7 @@ services:
       - .:/var/www
       - ./logs:/var/log
       - ./Docker/php/php.ini:/usr/local/etc/php/php.ini  # Исправленный путь для php.ini
+      - /var/www/scripts:/var/www/scripts
     env_file:
       - .env
     networks:
