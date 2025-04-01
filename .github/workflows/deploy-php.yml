@@ -15,26 +15,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Add SSH Known Hosts
+    - name: Setup SSH Key
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.KNOWN_HOSTS }}" >> ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
     - name: Setup Docker Network
-      env:
-        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       run: |
-        ssh -i <(echo "${{ secrets.SSH_PRIVATE_KEY }}") root@gsa-top.ru "
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@gsa-top.ru "
           if ! docker network inspect autoparts_network >/dev/null 2>&1; then
             docker network create --driver bridge --subnet=192.168.32.0/20 autoparts_network
           fi
         "
 
     - name: Deploy PHP API
-      env:
-        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       run: |
-        ssh -i <(echo "${{ secrets.SSH_PRIVATE_KEY }}") root@gsa-top.ru "
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@gsa-top.ru "
           set -e
           cd /var/www
           if git fetch origin main && git status | grep -q 'behind'; then
@@ -45,3 +43,4 @@ jobs:
             echo 'No changes detected, skipping deployment.'
           fi
         "
+
