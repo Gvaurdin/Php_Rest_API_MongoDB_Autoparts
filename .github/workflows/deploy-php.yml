@@ -24,11 +24,11 @@ jobs:
 
     - name: Test SSH Connection
       run: |
-        ssh -i ~/.ssh/id_ed25519 root@gsa-top.ru "echo 'SSH connection successful'"
+        ssh -i ~/.ssh/id_ed25519 gvaurdin@gsa-top.ru "echo 'SSH connection successful'"
 
     - name: Setup Docker Network
       run: |
-        ssh -i ~/.ssh/id_ed25519 root@gsa-top.ru "
+        ssh -i ~/.ssh/id_ed25519 gvaurdin@gsa-top.ru "
           if ! docker network inspect autoparts_network >/dev/null 2>&1; then
             docker network create --driver bridge --subnet=192.168.32.0/20 autoparts_network
           fi
@@ -36,7 +36,7 @@ jobs:
 
     - name: Deploy PHP API
       run: |
-        ssh -i ~/.ssh/id_ed25519 root@gsa-top.ru "
+        ssh -i ~/.ssh/id_ed25519 gvaurdin@gsa-top.ru "
           set -e
           cd /home/gvaurdin/autoparts-api
           if git fetch origin main && git status | grep -q 'behind'; then
