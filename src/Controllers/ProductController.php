@@ -23,7 +23,7 @@ class ProductController
 
     public function show($id)
     {
-        // Преобразуем строку $id в MongoDB ObjectId
+        // преобразуем строку $id в mongoDB objectId
         $objectId = new ObjectId($id);
     
         $product = $this->productModel->getById($objectId);
@@ -59,7 +59,6 @@ class ProductController
             return;
         }
     
-        // Преобразуем строку $id в MongoDB ObjectId
         $objectId = new ObjectId($id);
     
         $result = $this->productModel->update($objectId, $data);
@@ -69,7 +68,6 @@ class ProductController
 
     public function delete($id)
     {
-        // Преобразуем строку $id в MongoDB ObjectId
         $objectId = new ObjectId($id);
     
         $result = $this->productModel->delete($objectId);

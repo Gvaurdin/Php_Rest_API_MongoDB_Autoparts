@@ -3,22 +3,22 @@
 namespace Autoparts\App\Services;
 
 use MongoDB\Client;
-use MongoDB\Database as MongoDatabase; // Псевдоним для класса MongoDatabase
+use MongoDB\Database as MongoDatabase; // псевдоним для класса MongoDatabase
 
 class Database
 {
     private static ?Database $instance = null;
     private Client $client;
-    private MongoDatabase $database; // Используем MongoDatabase как тип
+    private MongoDatabase $database;
 
     private function __construct()
     {
-        // Подключаемся к MongoDB через URI из переменных окружения
+        // подключаемся к MongoDB через строку подключения из переменной окружения
         $this->client = new Client(getenv('MONGO_URI'));
         $this->database = $this->client->selectDatabase('autoparts');
     }
 
-    // Реализуем паттерн Singleton для обеспечения единственного экземпляра
+    // реализуем паттерн singleton для обеспечения единственного экземпляра подключения к базе
     public static function getInstance(): Database
     {
         if (self::$instance === null) {
@@ -27,8 +27,8 @@ class Database
         return self::$instance;
     }
 
-    // Получаем базу данных
-    public function getDatabase(): MongoDatabase // Возвращаем MongoDatabase
+    // получаем бд
+    public function getDatabase(): MongoDatabase 
     {
         return $this->database;
     }

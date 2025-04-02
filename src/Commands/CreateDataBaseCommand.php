@@ -10,12 +10,12 @@ class CreateDataBaseCommand
     public function execute()
     {
         try {
-            // Получаем подключение через централизованный класс Database
+            // получаем подключение через централизованный класс Database
             $database = Database::getInstance()->getDatabase();
 
             echo "База данных 'autoparts' создана или уже существует.\n";
 
-            // Создание коллекции products с валидацией
+            // создаем коллекцию products с валидацией
             $this->createProductsCollection($database);
 
             echo "Коллекция 'products' успешно создана или уже существует.\n";
@@ -28,7 +28,7 @@ class CreateDataBaseCommand
     {
         $collectionName = 'products';
 
-        // Проверяем, существует ли коллекция
+        // проверяем, существует ли коллекция
         if ($this->collectionExists($database, $collectionName)) {
             echo "Коллекция '$collectionName' уже существует.\n";
             return;
@@ -72,7 +72,7 @@ class CreateDataBaseCommand
             ]
         ];
 
-        // Создание коллекции с валидацией
+        // создание коллекции с валидацией
         $database->createCollection($collectionName, $schema);
 
         echo "Коллекция '$collectionName' создана с JSON Schema валидацией.\n";
