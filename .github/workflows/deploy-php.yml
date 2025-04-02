@@ -25,6 +25,13 @@ jobs:
     - name: Test SSH Connection
       run: |
         ssh -i ~/.ssh/id_ed25519 gvaurdin@gsa-top.ru "echo 'SSH connection successful'"
+    
+    - name: Stop and Remove Existing Containers
+      run: |
+        ssh -i ~/.ssh/id_ed25519 gvaurdin@gsa-top.ru "
+          cd /home/gvaurdin/autoparts-api
+          docker-compose down
+        "
 
     - name: Setup Docker Network
       run: |
