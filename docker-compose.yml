@@ -13,10 +13,13 @@ services:
     env_file:
       - .env
     networks:
-      autoparts_network:
+      autoparts_network-php:
         ipv4_address: 192.168.32.11
 
 networks:
-  autoparts_network:
-    name: autoparts_network
+  autoparts_network-php:
+    name: autoparts_network-php
     driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.32.0/24
