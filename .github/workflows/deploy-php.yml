@@ -36,7 +36,7 @@ jobs:
 
     - name: Deploy PHP API
       run: |
-        ssh -i ~/.ssh/id_ed25519 root@gsa-top.ru "
+        ssh -i ~/.ssh/id_ed25519 gvaurdin@gsa-top.ru "
           set -e
           cd /var/www
           if git fetch origin main && git status | grep -q 'behind'; then
