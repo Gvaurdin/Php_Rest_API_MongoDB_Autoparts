@@ -9,11 +9,7 @@ services:
     volumes:
       - .:/var/www
       - ./logs:/var/log
-      - ./Docker/php/php.ini:/usr/local/etc/php/php.ini  # Исправленный путь для php.ini
-      - /var/www/scripts:/var/www/scripts
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
-      - com.centurylinklabs.watchtower.lifecycle.pre-update=/hooks/update.sh
+      - ./Docker/php/php.ini:/usr/local/etc/php/php.ini
     env_file:
       - .env
     networks:

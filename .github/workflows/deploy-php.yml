@@ -38,10 +38,10 @@ jobs:
       run: |
         ssh -i ~/.ssh/id_ed25519 root@gsa-top.ru "
           set -e
-          cd /var/www
+          cd /home/gvaurdin/autoparts-api
           if git fetch origin main && git status | grep -q 'behind'; then
             git pull origin main
-            docker-compose -f /var/www/docker-compose.yml up -d --build --force-recreate php
+            docker-compose -f /home/gvaurdin/autoparts-api/docker-compose.yml up -d --build --force-recreate php
             docker ps --filter 'name=autoparts-php'
           else
             echo 'No changes detected, skipping deployment.'
