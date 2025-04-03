@@ -1,13 +1,11 @@
 <?php
 
-use Autoparts\App\Controllers\OrderController;
 use Autoparts\App\Controllers\ProductController;
-use Autoparts\App\Controllers\UserController;
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-// маршруты для  коллекции продукты
+// Маршруты для продуктов
 if ($uri === '/api/products' && $method === 'GET') {
     (new ProductController())->index();
 } elseif (preg_match('/^\/api\/product\/([a-f0-9]{24})$/', $uri, $matches) && $method === 'GET') {
